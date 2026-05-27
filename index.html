@@ -309,22 +309,23 @@
 
     .form-shell {
       display: grid;
-      grid-template-columns: 300px minmax(0, 1fr);
-      gap: 22px;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
       align-items: start;
     }
 
     .sidebar {
-      position: sticky;
-      top: 88px;
-      padding: 16px;
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+      padding: 10px;
       border-radius: var(--radius);
       background: rgba(255,255,255,.035);
       border: 1px solid var(--line);
     }
 
     .tab {
-      width: 100%;
+      flex: 1;
       text-align: left;
       display: grid;
       grid-template-columns: 34px 1fr;
@@ -339,7 +340,7 @@
       font: inherit;
     }
 
-    .tab + .tab { margin-top: 6px; }
+    .tab + .tab { margin-top: 0; }
 
     .tab strong {
       display: block;
@@ -371,9 +372,7 @@
     }
 
     .side-note {
-      margin-top: 18px;
-      padding: 15px;
-      border-top: 1px solid rgba(255,255,255,.1);
+      display: none;
       color: var(--muted);
       font-size: 13px;
       line-height: 1.55;
@@ -705,8 +704,7 @@
     <nav class="nav" aria-label="Navegación principal">
       <a href="#formularios">Formularios</a>
       <a href="#marketing">Marketing</a>
-      <a href="#facturacion">Facturación</a>
-      <a href="#academico">Accesos y ponente</a>
+      <a href="#accesos">Accesos</a>
       <a href="#formularios" class="access">Empezar</a>
     </nav>
   </header>
@@ -716,7 +714,7 @@
       <div class="hero-content">
         <span class="eyebrow">Onboarding oficial de sponsors</span>
         <h1><span class="ai">AI</span><span class="summit">Construction<br>Summit <span class="year">2026</span></span></h1>
-        <p class="lead">Completa la información de marca, facturación, accesos y participación académica para activar tus beneficios como sponsor.</p>
+        <p class="lead">Completa la información de marca, accesos y participación académica para activar tus beneficios como sponsor.</p>
         <div class="hero-actions">
           <a class="button" href="#formularios">Completar formularios</a>
           <a class="button secondary" href="#proceso">Ver proceso</a>
@@ -728,8 +726,8 @@
       <div class="split">
         <div>
           <div class="section-kicker">Proceso</div>
-          <h2>Tres envíos, una coordinación ordenada.</h2>
-          <p class="muted">Cada formulario responde a un área distinta. Así evitamos mezclar logos con facturación o ponentes con datos administrativos.</p>
+          <h2>Dos formularios, una coordinación ordenada.</h2>
+          <p class="muted">Cada formulario responde a un área distinta. Así evitamos mezclar logos, permisos, accesos y datos de ponentes.</p>
         </div>
         <div class="steps">
           <div class="step">
@@ -737,11 +735,7 @@
             <span>Materiales, redes, permisos de uso y contacto de aprobación para piezas oficiales.</span>
           </div>
           <div class="step">
-            <b>02 Facturación</b>
-            <span>Datos legales, contacto administrativo y requisitos de orden de compra o documentos internos.</span>
-          </div>
-          <div class="step">
-            <b>03 Accesos</b>
+            <b>02 Accesos</b>
             <span>Entradas incluidas, representantes, beneficios y ponente sponsor si corresponde.</span>
           </div>
         </div>
@@ -753,18 +747,14 @@
         <aside class="sidebar" aria-label="Formularios disponibles">
           <button class="tab active" data-tab="marketing" type="button">
             <span class="tab-icon">01</span>
-            <span><strong>Marketing y marca</strong><span>Assets, permisos y difusión</span></span>
+            <span><strong>Marketing y marca</strong><span>Logos, permisos y difusión</span></span>
           </button>
-          <button class="tab" data-tab="facturacion" type="button">
+          <button class="tab" data-tab="accesos" type="button">
             <span class="tab-icon">02</span>
-            <span><strong>Facturación</strong><span>Datos legales y administrativos</span></span>
-          </button>
-          <button class="tab" data-tab="academico" type="button">
-            <span class="tab-icon">03</span>
             <span><strong>Accesos y ponente</strong><span>Representantes, entradas, speaker</span></span>
           </button>
           <div class="side-note">
-            Completa la información por área para que el equipo pueda activar marca, facturación, accesos y participación académica.
+            Completa la información por área para que el equipo pueda activar marca, accesos y participación académica.
           </div>
         </aside>
 
@@ -821,9 +811,14 @@
                 <legend>Materiales de marca</legend>
                 <div class="grid">
                   <div class="field">
-                    <label for="logoPngFile">Logo PNG transparente</label>
-                    <input id="logoPngFile" name="logoPngFile" type="file" accept=".png,image/png" />
-                    <span class="hint">Ideal para piezas digitales con fondo transparente.</span>
+                    <label for="logoColorFile">Logo a color</label>
+                    <input id="logoColorFile" name="logoColorFile" type="file" accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp" />
+                    <span class="hint">Versión principal para piezas digitales y publicaciones oficiales.</span>
+                  </div>
+                  <div class="field">
+                    <label for="logoMonoFile">Logo en blanco y negro</label>
+                    <input id="logoMonoFile" name="logoMonoFile" type="file" accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp" />
+                    <span class="hint">Versión monocromática para fondos claros, oscuros o piezas sobrias.</span>
                   </div>
                   <div class="field">
                     <label for="logoVectorFile">Logo vectorial</label>
@@ -850,12 +845,8 @@
                     <textarea id="companyDescription" name="companyDescription" maxlength="520" placeholder="50 a 80 palabras para web, post y notas de prensa."></textarea>
                   </div>
                   <div class="field">
-                    <label for="keyMessage">Mensaje clave que desean posicionar</label>
+                    <label for="keyMessage">Mensaje clave que desean posicionar en el Summit</label>
                     <textarea id="keyMessage" name="keyMessage" placeholder="Idea principal, solución o valor que quieren comunicar durante el Summit."></textarea>
-                  </div>
-                  <div class="field">
-                    <label for="campaign">Producto, campaña o solución que desean destacar</label>
-                    <textarea id="campaign" name="campaign" placeholder="Lanzamiento, demo, caso, tecnología o línea comercial relevante."></textarea>
                   </div>
                 </div>
               </fieldset>
@@ -875,147 +866,17 @@
                     <input id="marketingApproverName" name="marketingApproverName" placeholder="Nombre completo" />
                   </div>
                   <div class="field">
-                    <label for="marketingApproverRole">Cargo de quien aprueba piezas</label>
-                    <input id="marketingApproverRole" name="marketingApproverRole" placeholder="Ej. Coordinadora de Marketing" />
-                  </div>
-                  <div class="field">
-                    <label for="marketingApproverEmail">Correo de aprobación</label>
-                    <input id="marketingApproverEmail" name="marketingApproverEmail" type="email" placeholder="correo@empresa.com" />
-                  </div>
-                  <div class="field">
                     <label for="marketingApproverPhone">WhatsApp de aprobación</label>
                     <input id="marketingApproverPhone" name="marketingApproverPhone" placeholder="+51 ..." />
                   </div>
-                  <div class="field">
-                    <label for="approvalTime">Tiempo promedio de aprobación de piezas</label>
-                    <select id="approvalTime" name="approvalTime">
-                      <option>24 h</option>
-                      <option>48 h</option>
-                      <option>72 h</option>
-                      <option>Más de 72 h</option>
-                    </select>
-                    <span class="hint">Tiempo estimado del contacto o equipo que revisa las piezas.</span>
-                  </div>
-                  <div class="field">
-                    <label for="brandRestrictions">Restricciones de uso de marca</label>
-                    <input id="brandRestrictions" name="brandRestrictions" placeholder="Colores, fondos, usos prohibidos..." />
-                  </div>
                 </div>
               </fieldset>
             </div>
 
-            <div class="form-view" id="facturacion" data-view hidden>
+            <div class="form-view" id="accesos" data-view hidden>
               <div class="form-header">
                 <div>
                   <div class="section-kicker">Formulario 02</div>
-                  <h3>Información de facturación</h3>
-                  <p class="muted">Datos administrativos necesarios para emitir comprobante, coordinar pago y evitar bloqueos.</p>
-                </div>
-                <span class="badge">Administrativo</span>
-              </div>
-
-              <fieldset>
-                <legend>Datos legales</legend>
-                <div class="grid">
-                  <div class="field" id="facturacion">
-                    <label for="legalName">Razón social</label>
-                    <input id="legalName" name="legalName" required />
-                  </div>
-                  <div class="field">
-                    <label for="ruc">RUC</label>
-                    <input id="ruc" name="ruc" inputmode="numeric" placeholder="11 dígitos" required />
-                  </div>
-                  <div class="field">
-                    <label for="fiscalAddress">Dirección fiscal</label>
-                    <input id="fiscalAddress" name="fiscalAddress" required />
-                  </div>
-                  <div class="field">
-                    <label for="billingCategory">Categoría de sponsor contratada</label>
-                    <select id="billingCategory" name="billingCategory">
-                      <option value="">Seleccionar</option>
-                      <option>Diamante</option>
-                      <option>Gold</option>
-                      <option>Silver</option>
-                      <option>Aliado / otro</option>
-                    </select>
-                  </div>
-                </div>
-              </fieldset>
-
-              <fieldset>
-                <legend>Contacto administrativo</legend>
-                <div class="grid">
-                  <div class="field">
-                    <label for="adminName">Nombre del contacto administrativo</label>
-                    <input id="adminName" name="adminName" required />
-                  </div>
-                  <div class="field">
-                    <label for="adminRole">Cargo</label>
-                    <input id="adminRole" name="adminRole" />
-                  </div>
-                  <div class="field">
-                    <label for="invoiceEmail">Correo para envío de factura</label>
-                    <input id="invoiceEmail" name="invoiceEmail" type="email" required />
-                  </div>
-                  <div class="field">
-                    <label for="adminPhone">WhatsApp / teléfono</label>
-                    <input id="adminPhone" name="adminPhone" />
-                  </div>
-                </div>
-              </fieldset>
-
-              <fieldset>
-                <legend>Condiciones de emisión</legend>
-                <div class="grid">
-                  <div class="field">
-                    <label for="voucherType">Tipo de comprobante requerido</label>
-                    <select id="voucherType" name="voucherType">
-                      <option>Factura</option>
-                      <option>Boleta</option>
-                      <option>Recibo / otro</option>
-                      <option>Por confirmar</option>
-                    </select>
-                  </div>
-                  <div class="field">
-                    <label for="purchaseOrder">¿Hay algún procedimiento interno que debamos considerar para la facturación?</label>
-                    <select id="purchaseOrder" name="purchaseOrder" data-toggle="poDetails">
-                      <option>No, pueden emitir la factura directamente</option>
-                      <option>Sí, orden de compra</option>
-                      <option>Sí, otro documento interno</option>
-                      <option>Por confirmar</option>
-                    </select>
-                    <span class="hint">Esto nos ayuda a evitar demoras en la emisión o gestión administrativa.</span>
-                  </div>
-                </div>
-                <div class="conditional" id="poDetails">
-                  <div class="grid">
-                    <div class="field">
-                      <label for="poProcedure">Procedimiento o contacto responsable</label>
-                      <textarea id="poProcedure" name="poProcedure" placeholder="Indicar cómo debe gestionarse la OC o documento interno."></textarea>
-                    </div>
-                    <div class="field">
-                      <label for="poFile">Adjuntar OC o documento si ya existe</label>
-                      <input id="poFile" name="poFile" type="file" accept=".pdf,.doc,.docx,.xls,.xlsx" />
-                    </div>
-                  </div>
-                </div>
-                <div class="grid">
-                  <div class="field">
-                    <label for="invoiceNotes">Datos adicionales que deben figurar en factura</label>
-                    <textarea id="invoiceNotes" name="invoiceNotes" placeholder="OC, glosa, proyecto, código interno, área solicitante..."></textarea>
-                  </div>
-                  <div class="field">
-                    <label for="paymentDate">Fecha estimada de pago o proceso interno</label>
-                    <input id="paymentDate" name="paymentDate" type="date" />
-                  </div>
-                </div>
-              </fieldset>
-            </div>
-
-            <div class="form-view" id="academico" data-view hidden>
-              <div class="form-header">
-                <div>
-                  <div class="section-kicker">Formulario 03</div>
                   <h3>Representantes, accesos y participación académica</h3>
                   <p class="muted">Para acreditar asistentes, activar beneficios y coordinar ponentes sponsor cuando el paquete lo incluya.</p>
                 </div>
@@ -1025,7 +886,7 @@
               <fieldset>
                 <legend>Identificación del sponsor</legend>
                 <div class="grid">
-                  <div class="field" id="academico">
+                  <div class="field" id="accesos">
                     <label for="accessBrandName">Nombre comercial de la empresa</label>
                     <input id="accessBrandName" name="accessBrandName" />
                   </div>
@@ -1503,7 +1364,7 @@
     });
 
     const initialHash = location.hash.replace("#", "");
-    if (["marketing", "facturacion", "academico"].includes(initialHash)) activateTab(initialHash);
+    if (["marketing", "accesos"].includes(initialHash)) activateTab(initialHash);
     loadDraft();
   </script>
 </body>
