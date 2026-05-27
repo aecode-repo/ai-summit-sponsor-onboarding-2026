@@ -775,12 +775,12 @@
                 <div class="grid">
                   <div class="field" id="marketing">
                     <label for="brandName">Nombre comercial de la empresa</label>
-                    <input id="brandName" name="brandName" placeholder="Ej. AEC Tech Solutions" required />
+                    <input id="brandName" name="brandName" placeholder="Ej. AEC Tech Solutions" />
                     <span class="hint">Nombre tal como debe aparecer en piezas públicas.</span>
                   </div>
                   <div class="field">
                     <label for="sponsorCategoryMarketing">Categoría de sponsor</label>
-                    <select id="sponsorCategoryMarketing" name="sponsorCategoryMarketing" required>
+                    <select id="sponsorCategoryMarketing" name="sponsorCategoryMarketing">
                       <option value="">Seleccionar</option>
                       <option>Diamante</option>
                       <option>Gold</option>
@@ -829,10 +829,16 @@
                     <label for="brandBookFile">Brand book o manual de marca</label>
                     <input id="brandBookFile" name="brandBookFile" type="file" accept=".pdf,.ppt,.pptx,.doc,.docx" />
                   </div>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>Video del sponsor</legend>
+                <div class="grid one">
                   <div class="field">
-                    <label for="commercialFiles">Materiales comerciales adicionales</label>
-                    <input id="commercialFiles" name="commercialFiles" type="file" multiple accept=".pdf,.ppt,.pptx,.doc,.docx,.png,.jpg,.jpeg,.mp4,.mov" />
-                    <span class="hint">Brochures, presentaciones, fotos, piezas aprobadas o videos cortos.</span>
+                    <label for="sponsorVideoFile">Video institucional o pieza audiovisual</label>
+                    <input id="sponsorVideoFile" name="sponsorVideoFile" type="file" accept=".mp4,.mov,.webm,video/mp4,video/quicktime,video/webm" />
+                    <span class="hint">Opcional. Si aún no lo tienen listo, pueden enviar el formulario ahora y compartir el video luego.</span>
                   </div>
                 </div>
               </fieldset>
