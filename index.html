@@ -655,6 +655,39 @@
       font-size: 14px;
     }
 
+    .later-box {
+      margin: 6px 0 34px;
+      padding: 18px;
+      border: 1px dashed rgba(143, 170, 255, .35);
+      border-radius: var(--radius);
+      background: rgba(53, 168, 255, .045);
+    }
+
+    .later-box h4 {
+      margin: 0 0 6px;
+      font-size: 15px;
+      color: #ffffff;
+    }
+
+    .later-box p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .later-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+      color: #9cc8ff;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
     .footer {
       border-top: 1px solid rgba(255,255,255,.08);
       color: var(--muted);
@@ -833,17 +866,6 @@
               </fieldset>
 
               <fieldset>
-                <legend>Video del sponsor</legend>
-                <div class="grid one">
-                  <div class="field">
-                    <label for="sponsorVideoFile">Video institucional o pieza audiovisual</label>
-                    <input id="sponsorVideoFile" name="sponsorVideoFile" type="file" accept=".mp4,.mov,.webm,video/mp4,video/quicktime,video/webm" />
-                    <span class="hint">Opcional. Si aún no lo tienen listo, pueden enviar el formulario ahora y compartir el video luego.</span>
-                  </div>
-                </div>
-              </fieldset>
-
-              <fieldset>
                 <legend>Información para difusión</legend>
                 <div class="grid one">
                   <div class="field">
@@ -856,6 +878,16 @@
                   </div>
                 </div>
               </fieldset>
+
+              <div class="later-box">
+                <span class="later-label">Se puede completar después</span>
+                <h4>Video del sponsor</h4>
+                <p>Si ya tienen un video institucional o pieza audiovisual lista, pueden adjuntarla. Si todavía está en revisión, envíen primero logos y datos de marca; el video se puede compartir luego.</p>
+                <div class="field">
+                  <label for="sponsorVideoFile">Adjuntar video si ya está disponible</label>
+                  <input id="sponsorVideoFile" name="sponsorVideoFile" type="file" accept=".mp4,.mov,.webm,video/mp4,video/quicktime,video/webm" />
+                </div>
+              </div>
 
               <fieldset>
                 <legend>Permisos y aprobación</legend>
