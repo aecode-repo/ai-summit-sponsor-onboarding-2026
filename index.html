@@ -961,20 +961,6 @@
               <fieldset>
                 <legend>Identificación del sponsor</legend>
                 <div class="grid">
-                  <div class="field" id="accesos">
-                    <label for="accessBrandName">Nombre comercial de la empresa</label>
-                    <input id="accessBrandName" name="accessBrandName" />
-                  </div>
-                  <div class="field">
-                    <label for="accessCategory">Categoría de sponsor</label>
-                    <select id="accessCategory" name="accessCategory">
-                      <option value="">Seleccionar</option>
-                      <option>Diamante - 10 entradas incluidas</option>
-                      <option>Gold - 6 entradas incluidas</option>
-                      <option>Silver - 3 entradas incluidas</option>
-                      <option>Otro / alianza</option>
-                    </select>
-                  </div>
                   <div class="field">
                     <label for="eventContact">Contacto principal para coordinación del evento</label>
                     <input id="eventContact" name="eventContact" placeholder="Nombre, cargo, correo y WhatsApp" />
@@ -1168,8 +1154,16 @@
                 </div>
                 <div class="grid" style="margin-top:18px;">
                   <div class="field">
-                    <label for="contentContact">Responsable para entrevistas/contenido</label>
-                    <input id="contentContact" name="contentContact" placeholder="Nombre, correo y WhatsApp" />
+                    <label for="contentContactName">Nombre del responsable de contenido</label>
+                    <input id="contentContactName" name="contentContactName" placeholder="Nombre completo" />
+                  </div>
+                  <div class="field">
+                    <label for="contentContactEmail">Correo del responsable de contenido</label>
+                    <input id="contentContactEmail" name="contentContactEmail" type="email" placeholder="correo@empresa.com" />
+                  </div>
+                  <div class="field">
+                    <label for="contentContactPhone">WhatsApp del responsable de contenido</label>
+                    <input id="contentContactPhone" name="contentContactPhone" placeholder="+51 ..." />
                   </div>
                   <div class="field">
                     <label for="additionalNotes">Observaciones adicionales</label>
