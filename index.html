@@ -937,16 +937,6 @@
                 </div>
               </fieldset>
 
-              <section class="later-box media-box">
-                <h4>Video del sponsor</h4>
-                <div class="field">
-                  <label for="sponsorVideoFile">Adjuntar video institucional o pieza audiovisual</label>
-                  <input id="sponsorVideoFile" name="sponsorVideoFile" type="file" accept=".mp4,.mov,.webm,video/mp4,video/quicktime,video/webm" />
-                </div>
-                <div style="margin-top: 14px; text-align: right;">
-                  <button type="submit" class="button small">Enviar video</button>
-                </div>
-              </section>
             </div>
 
             <div class="form-view" id="accesos" data-view hidden>
@@ -1184,6 +1174,17 @@
               <div class="status" id="saveStatus">Estado: <b>listo para enviar</b></div>
               <button type="submit" class="button small">Enviar información</button>
             </div>
+
+            <section class="later-box media-box" id="marketingVideoBox" data-marketing-only>
+              <h4>Video del sponsor</h4>
+              <div class="field">
+                <label for="sponsorVideoFile">Adjuntar video institucional o pieza audiovisual</label>
+                <input id="sponsorVideoFile" name="sponsorVideoFile" type="file" accept=".mp4,.mov,.webm,video/mp4,video/quicktime,video/webm" />
+              </div>
+              <div style="margin-top: 14px; text-align: right;">
+                <button type="submit" class="button small">Enviar video</button>
+              </div>
+            </section>
           </form>
         </section>
 
@@ -1209,6 +1210,9 @@
     function activateTab(id) {
       tabs.forEach(tab => tab.classList.toggle("active", tab.dataset.tab === id));
       views.forEach(view => view.hidden = view.id !== id);
+      document.querySelectorAll("[data-marketing-only]").forEach(section => {
+        section.hidden = id !== "marketing";
+      });
       history.replaceState(null, "", "#" + id);
     }
 
