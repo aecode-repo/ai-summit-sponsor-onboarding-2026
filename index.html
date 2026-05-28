@@ -502,6 +502,29 @@
       background: rgba(9, 14, 34, .92);
     }
 
+    input.is-filled, select.is-filled, textarea.is-filled {
+      border-color: rgba(98, 226, 143, .72);
+      background:
+        linear-gradient(90deg, rgba(98, 226, 143, .12), rgba(98, 226, 143, .03)),
+        rgba(5, 8, 24, .72);
+      box-shadow: 0 0 0 1px rgba(98, 226, 143, .12);
+    }
+
+    .field.is-filled label::after {
+      content: "✓";
+      display: inline-grid;
+      place-items: center;
+      width: 16px;
+      height: 16px;
+      margin-left: 8px;
+      border-radius: 999px;
+      background: rgba(98, 226, 143, .18);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 900;
+      vertical-align: 1px;
+    }
+
     .check-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -656,11 +679,37 @@
     }
 
     .later-box {
-      margin: 6px 0 34px;
-      padding: 18px;
+      margin: 38px 0 34px;
+      padding: 22px 18px 18px;
       border: 1px dashed rgba(143, 170, 255, .35);
       border-radius: var(--radius);
       background: rgba(53, 168, 255, .045);
+      position: relative;
+    }
+
+    .later-box::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -24px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(143, 170, 255, .5), transparent);
+    }
+
+    .later-box::after {
+      content: "Envío independiente";
+      position: absolute;
+      top: -34px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0 12px;
+      background: var(--panel);
+      color: #9cc8ff;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
 
     .later-box h4 {
@@ -1302,6 +1351,22 @@
     document.querySelectorAll("[data-toggle]").forEach(control => control.addEventListener("change", updateConditionals));
     updateConditionals();
 
+    function updateFilledStates() {
+      form.querySelectorAll("input, select, textarea").forEach(control => {
+        if (control.type === "checkbox" || control.type === "radio") return;
+        const hasValue = control.type === "file"
+          ? control.files && control.files.length > 0
+          : String(control.value || "").trim() !== "";
+        control.classList.toggle("is-filled", hasValue);
+        const field = control.closest(".field");
+        if (field) field.classList.toggle("is-filled", hasValue);
+      });
+    }
+
+    form.addEventListener("input", updateFilledStates);
+    form.addEventListener("change", updateFilledStates);
+    updateFilledStates();
+
     function collectData() {
       const data = {};
       const fd = new FormData(form);
@@ -1366,6 +1431,7 @@
         if (extraTicketList) extraTicketList.classList.add("show");
       }
       updateConditionals();
+      updateFilledStates();
       statusEl.innerHTML = "Estado: <b>datos recuperados</b>";
     }
 
