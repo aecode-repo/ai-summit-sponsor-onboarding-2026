@@ -1050,10 +1050,10 @@
               </fieldset>
 
               <fieldset>
-                <legend>Participación académica / ponente sponsor</legend>
+                <legend>Datos del ponente o representante</legend>
                 <div class="grid">
                   <div class="field">
-                    <label for="hasSpeaker">¿Su categoría o acuerdo incluye participación académica o ponente?</label>
+                    <label for="hasSpeaker">¿Su categoría o acuerdo incluye participación académica, panel o representante?</label>
                     <select id="hasSpeaker" name="hasSpeaker" data-toggle="speakerDetails">
                       <option>No</option>
                       <option>Sí</option>
@@ -1064,12 +1064,69 @@
                 <div class="conditional" id="speakerDetails">
                   <div class="grid">
                     <div class="field">
-                      <label for="speakerName">Nombre del ponente propuesto</label>
+                      <label for="speakerTopic">Tema de la intervención</label>
+                      <input id="speakerTopic" name="speakerTopic" placeholder="Título o tema tentativo" />
+                    </div>
+                    <div class="field">
+                      <label for="speakerAxis">Bloque de agenda</label>
+                      <select id="speakerAxis" name="speakerAxis">
+                        <option>Por definir con AECODE</option>
+                        <option>IA aplicada en empresas AEC</option>
+                        <option>IA aplicada a proyectos</option>
+                        <option>Datos/BIM/modelos conectados</option>
+                        <option>Agentes de IA</option>
+                        <option>Visión computacional</option>
+                        <option>Obra inteligente</option>
+                        <option>Robótica / construcción 4.0</option>
+                        <option>Infraestructura / LATAM</option>
+                        <option>Startups / innovación tecnológica</option>
+                        <option>Otro</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="speakerFormat">Rol en el Summit</label>
+                      <select id="speakerFormat" name="speakerFormat">
+                        <option>Por definir con AECODE</option>
+                        <option>Speaker / ponente</option>
+                        <option>Panelista</option>
+                        <option>Moderador</option>
+                        <option>Representante institucional</option>
+                        <option>Demo</option>
+                        <option>Keynote</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="speakerAvailability">Día de participación</label>
+                      <select id="speakerAvailability" name="speakerAvailability">
+                        <option>Por confirmar</option>
+                        <option>Viernes 17</option>
+                        <option>Sábado 18</option>
+                        <option>Ambos</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="speakerTime">Hora de la ponencia o panel</label>
+                      <input id="speakerTime" name="speakerTime" placeholder="Ej. 3:40 pm - 4:05 pm / por confirmar" />
+                    </div>
+                    <div class="field">
+                      <label for="speakerName">Nombre completo</label>
                       <input id="speakerName" name="speakerName" />
                     </div>
                     <div class="field">
-                      <label for="speakerRole">Cargo</label>
+                      <label for="speakerCountry">País</label>
+                      <input id="speakerCountry" name="speakerCountry" placeholder="Ej. Perú" />
+                    </div>
+                    <div class="field">
+                      <label for="speakerCompany">Empresa a la que representa</label>
+                      <input id="speakerCompany" name="speakerCompany" />
+                    </div>
+                    <div class="field">
+                      <label for="speakerRole">Cargo en la empresa</label>
                       <input id="speakerRole" name="speakerRole" />
+                    </div>
+                    <div class="field">
+                      <label for="speakerLinkedin">LinkedIn</label>
+                      <input id="speakerLinkedin" name="speakerLinkedin" type="url" />
                     </div>
                     <div class="field">
                       <label for="speakerEmail">Correo</label>
@@ -1080,71 +1137,31 @@
                       <input id="speakerPhone" name="speakerPhone" />
                     </div>
                     <div class="field">
-                      <label for="speakerLinkedin">LinkedIn</label>
-                      <input id="speakerLinkedin" name="speakerLinkedin" type="url" />
-                    </div>
-                    <div class="field">
-                      <label for="speakerPhoto">Foto profesional</label>
+                      <label for="speakerPhoto">Foto profesional del ponente</label>
                       <input id="speakerPhoto" name="speakerPhoto" type="file" accept=".jpg,.jpeg,.png" />
+                      <span class="hint">Foto de rostro, buena iluminación, fondo limpio, formato vertical o cuadrado, alta resolución.</span>
                     </div>
                   </div>
                   <div class="grid one" style="margin-top:18px;">
                     <div class="field">
-                      <label for="speakerBio">Bio corta</label>
-                      <textarea id="speakerBio" name="speakerBio" placeholder="Trayectoria breve, experiencia AEC/IA y cargo actual."></textarea>
+                      <label for="speakerBio">Descripción de su recorrido o experiencia profesional</label>
+                      <textarea id="speakerBio" name="speakerBio" placeholder="Trayectoria breve, experiencia relevante, proyectos, sector y cargo actual."></textarea>
                     </div>
                     <div class="field">
-                      <label for="speakerTopic">Tema tentativo de la intervención</label>
-                      <input id="speakerTopic" name="speakerTopic" />
-                    </div>
-                  </div>
-                  <div class="grid" style="margin-top:18px;">
-                    <div class="field">
-                      <label for="speakerAxis">Eje o bloque al que podría aportar</label>
-                      <select id="speakerAxis" name="speakerAxis">
-                        <option>IA aplicada en empresas AEC</option>
-                        <option>IA aplicada a proyectos</option>
-                        <option>Datos/BIM/modelos conectados</option>
-                        <option>Agentes de IA</option>
-                        <option>Visión computacional</option>
-                        <option>Obra inteligente</option>
-                        <option>Robótica / construcción 4.0</option>
-                        <option>Infraestructura / LATAM</option>
-                        <option>Otro</option>
-                      </select>
-                    </div>
-                    <div class="field">
-                      <label for="speakerFormat">Formato sugerido</label>
-                      <select id="speakerFormat" name="speakerFormat">
-                        <option>Por definir con AECODE</option>
-                        <option>Keynote</option>
-                        <option>Ponencia</option>
-                        <option>Demo</option>
-                        <option>Panel</option>
-                        <option>Debate</option>
-                        <option>Entrevista</option>
-                      </select>
-                    </div>
-                    <div class="field">
-                      <label for="speakerAvailability">Disponibilidad</label>
-                      <select id="speakerAvailability" name="speakerAvailability">
-                        <option>Por confirmar</option>
-                        <option>Viernes 17</option>
-                        <option>Sábado 18</option>
-                        <option>Ambos</option>
-                      </select>
-                    </div>
-                    <div class="field">
-                      <label for="academicConfirmation">Confirmación de enfoque académico</label>
-                      <select id="academicConfirmation" name="academicConfirmation">
-                        <option>Entendemos que debe aportar valor académico y no centrarse solo en venta</option>
-                        <option>Requerimos coordinar el enfoque con AECODE</option>
-                      </select>
+                      <label for="speakerProfessionalDescription">Descripción profesional para pieza gráfica</label>
+                      <textarea id="speakerProfessionalDescription" name="speakerProfessionalDescription" placeholder="Versión corta para post o programa. Ej. Especialista en..., director de..., con experiencia en..."></textarea>
                     </div>
                   </div>
                   <div class="field" style="margin-top:18px;">
                     <label for="speakerCase">Resumen del caso, experiencia o solución que presentaría</label>
                     <textarea id="speakerCase" name="speakerCase"></textarea>
+                  </div>
+                  <div class="field" style="margin-top:18px;">
+                    <label for="academicConfirmation">Confirmación de enfoque de valor</label>
+                    <select id="academicConfirmation" name="academicConfirmation">
+                      <option>Entendemos que debe aportar valor y no centrarse solo en venta</option>
+                      <option>Requerimos coordinar el enfoque con AECODE</option>
+                    </select>
                   </div>
                 </div>
               </fieldset>
