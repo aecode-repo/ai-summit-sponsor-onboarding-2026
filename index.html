@@ -676,18 +676,6 @@
       line-height: 1.5;
     }
 
-    .later-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 12px;
-      color: #9cc8ff;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
     .footer {
       border-top: 1px solid rgba(255,255,255,.08);
       color: var(--muted);
@@ -878,16 +866,6 @@
                   </div>
                 </div>
               </fieldset>
-
-              <div class="later-box">
-                <span class="later-label">Se puede completar después</span>
-                <h4>Video del sponsor</h4>
-                <p>Si ya tienen un video institucional o pieza audiovisual lista, pueden adjuntarla. Si todavía está en revisión, envíen primero logos y datos de marca; el video se puede compartir luego.</p>
-                <div class="field">
-                  <label for="sponsorVideoFile">Adjuntar video si ya está disponible</label>
-                  <input id="sponsorVideoFile" name="sponsorVideoFile" type="file" accept=".mp4,.mov,.webm,video/mp4,video/quicktime,video/webm" />
-                </div>
-              </div>
 
               <fieldset>
                 <legend>Permisos y aprobación</legend>
@@ -1164,6 +1142,17 @@
                   </div>
                 </div>
               </fieldset>
+            </div>
+
+            <div class="later-box">
+              <h4>Video del sponsor</h4>
+              <div class="field">
+                <label for="sponsorVideoFile">Adjuntar video institucional o pieza audiovisual</label>
+                <input id="sponsorVideoFile" name="sponsorVideoFile" type="file" accept=".mp4,.mov,.webm,video/mp4,video/quicktime,video/webm" />
+              </div>
+              <div style="margin-top: 14px; text-align: right;">
+                <button type="submit" class="button secondary small">Enviar video</button>
+              </div>
             </div>
 
             <div class="actions">
