@@ -689,6 +689,20 @@
       box-shadow: var(--shadow);
     }
 
+    .media-box {
+      margin-top: 44px;
+    }
+
+    .media-box::before {
+      content: "";
+      position: absolute;
+      top: -22px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(143, 170, 255, .42), transparent);
+    }
+
     .later-box h4 {
       margin: 0 0 6px;
       font-size: 15px;
@@ -923,7 +937,7 @@
                 </div>
               </fieldset>
 
-              <section class="later-box">
+              <section class="later-box media-box">
                 <h4>Video del sponsor</h4>
                 <div class="field">
                   <label for="sponsorVideoFile">Adjuntar video institucional o pieza audiovisual</label>
@@ -1085,75 +1099,63 @@
                 <legend>Participación en el programa</legend>
                 <div class="grid">
                   <div class="field">
-                    <label for="hasSpeaker">¿Su categoría o acuerdo incluye participación académica, panel o representante?</label>
-                    <select id="hasSpeaker" name="hasSpeaker" data-toggle="speakerDetails">
-                      <option>No</option>
-                      <option>Sí</option>
-                      <option>Por confirmar</option>
-                    </select>
+                    <label for="speakerName">Nombre completo</label>
+                    <input id="speakerName" name="speakerName" />
+                  </div>
+                  <div class="field">
+                    <label for="speakerCountry">País</label>
+                    <input id="speakerCountry" name="speakerCountry" placeholder="Ej. Perú" />
+                  </div>
+                  <div class="field">
+                    <label for="speakerCompany">Empresa a la que representa</label>
+                    <input id="speakerCompany" name="speakerCompany" />
+                  </div>
+                  <div class="field">
+                    <label for="speakerRole">Cargo en la empresa</label>
+                    <input id="speakerRole" name="speakerRole" />
+                  </div>
+                  <div class="field">
+                    <label for="speakerLinkedin">LinkedIn</label>
+                    <input id="speakerLinkedin" name="speakerLinkedin" type="url" />
+                  </div>
+                  <div class="field">
+                    <label for="speakerEmail">Correo</label>
+                    <input id="speakerEmail" name="speakerEmail" type="email" />
+                  </div>
+                  <div class="field">
+                    <label for="speakerPhone">WhatsApp</label>
+                    <input id="speakerPhone" name="speakerPhone" />
+                  </div>
+                  <div class="field">
+                    <label for="speakerTopic">Tema tentativo de ponencia</label>
+                    <input id="speakerTopic" name="speakerTopic" placeholder="Título o tema tentativo" />
+                  </div>
+                  <div class="field">
+                    <label for="speakerPhoto">Foto profesional del ponente</label>
+                    <input id="speakerPhoto" name="speakerPhoto" type="file" accept=".jpg,.jpeg,.png" />
+                    <span class="hint">Foto de rostro, buena iluminación, fondo limpio, formato vertical o cuadrado, alta resolución.</span>
                   </div>
                 </div>
-                <div class="conditional" id="speakerDetails">
-                  <div class="grid">
-                    <div class="field">
-                      <label for="speakerName">Nombre completo</label>
-                      <input id="speakerName" name="speakerName" />
-                    </div>
-                    <div class="field">
-                      <label for="speakerCountry">País</label>
-                      <input id="speakerCountry" name="speakerCountry" placeholder="Ej. Perú" />
-                    </div>
-                    <div class="field">
-                      <label for="speakerCompany">Empresa a la que representa</label>
-                      <input id="speakerCompany" name="speakerCompany" />
-                    </div>
-                    <div class="field">
-                      <label for="speakerRole">Cargo en la empresa</label>
-                      <input id="speakerRole" name="speakerRole" />
-                    </div>
-                    <div class="field">
-                      <label for="speakerLinkedin">LinkedIn</label>
-                      <input id="speakerLinkedin" name="speakerLinkedin" type="url" />
-                    </div>
-                    <div class="field">
-                      <label for="speakerEmail">Correo</label>
-                      <input id="speakerEmail" name="speakerEmail" type="email" />
-                    </div>
-                    <div class="field">
-                      <label for="speakerPhone">WhatsApp</label>
-                      <input id="speakerPhone" name="speakerPhone" />
-                    </div>
-                    <div class="field">
-                      <label for="speakerTopic">Tema tentativo de ponencia</label>
-                      <input id="speakerTopic" name="speakerTopic" placeholder="Título o tema tentativo" />
-                    </div>
-                    <div class="field">
-                      <label for="speakerPhoto">Foto profesional del ponente</label>
-                      <input id="speakerPhoto" name="speakerPhoto" type="file" accept=".jpg,.jpeg,.png" />
-                      <span class="hint">Foto de rostro, buena iluminación, fondo limpio, formato vertical o cuadrado, alta resolución.</span>
-                    </div>
+                <div class="grid one" style="margin-top:18px;">
+                  <div class="field">
+                    <label for="speakerBio">Descripción de su recorrido o experiencia profesional</label>
+                    <textarea id="speakerBio" name="speakerBio" placeholder="Trayectoria breve, experiencia relevante, proyectos, sector y cargo actual."></textarea>
                   </div>
-                  <div class="grid one" style="margin-top:18px;">
-                    <div class="field">
-                      <label for="speakerBio">Descripción de su recorrido o experiencia profesional</label>
-                      <textarea id="speakerBio" name="speakerBio" placeholder="Trayectoria breve, experiencia relevante, proyectos, sector y cargo actual."></textarea>
-                    </div>
-                    <div class="field">
-                      <label for="speakerProfessionalDescription">Descripción profesional para pieza gráfica</label>
-                      <textarea id="speakerProfessionalDescription" name="speakerProfessionalDescription" placeholder="Versión corta para post o programa. Ej. Especialista en..., director de..., con experiencia en..."></textarea>
-                    </div>
+                  <div class="field">
+                    <label for="speakerProfessionalDescription">Descripción profesional para pieza gráfica</label>
+                    <textarea id="speakerProfessionalDescription" name="speakerProfessionalDescription" placeholder="Versión corta para post o programa. Ej. Especialista en..., director de..., con experiencia en..."></textarea>
                   </div>
-                  <div class="field" style="margin-top:18px;">
-                    <label for="speakerCase">Resumen del caso, experiencia o solución que presentaría</label>
-                    <textarea id="speakerCase" name="speakerCase"></textarea>
-                  </div>
-                  <div class="field" style="margin-top:18px;">
-                    <label for="academicConfirmation">Confirmación de enfoque de valor</label>
-                    <select id="academicConfirmation" name="academicConfirmation">
-                      <option>Entendemos que debe aportar valor y no centrarse solo en venta</option>
-                      <option>Requerimos coordinar el enfoque con AECODE</option>
-                    </select>
-                  </div>
+                </div>
+                <div class="field" style="margin-top:18px;">
+                  <label for="speakerCase">Resumen del caso, experiencia o solución que presentaría</label>
+                  <textarea id="speakerCase" name="speakerCase"></textarea>
+                </div>
+                <div class="field" style="margin-top:18px;">
+                  <label for="academicConfirmation">Confirmación de enfoque de valor</label>
+                  <select id="academicConfirmation" name="academicConfirmation">
+                    <option>Entendemos que debe aportar valor y no centrarse solo en venta</option>
+                    <option>Requerimos coordinar el enfoque con AECODE</option>
+                  </select>
                 </div>
               </fieldset>
 
