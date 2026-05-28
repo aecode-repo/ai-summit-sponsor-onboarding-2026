@@ -680,7 +680,7 @@
     }
 
     .later-box {
-      margin-top: 22px;
+      margin: 34px 0 0;
       padding: 28px;
       border: 1px dashed rgba(143, 170, 255, .35);
       border-radius: var(--radius);
@@ -774,7 +774,7 @@
       <div class="split">
         <div>
           <div class="section-kicker">Proceso</div>
-          <h2>Dos formularios, una coordinación ordenada.</h2>
+          <h2>Tres formularios, una coordinación ordenada.</h2>
           <p class="muted">Cada formulario responde a un área distinta. Así evitamos mezclar logos, permisos, accesos y datos de ponentes.</p>
         </div>
         <div class="steps">
@@ -784,7 +784,11 @@
           </div>
           <div class="step">
             <b>02 Accesos</b>
-            <span>Entradas incluidas, representantes, beneficios y ponente sponsor si corresponde.</span>
+            <span>Entradas incluidas, representantes, beneficios y personas que asistirán al Summit.</span>
+          </div>
+          <div class="step">
+            <b>03 Ponente</b>
+            <span>Datos del speaker, tema tentativo, bio, cargo, foto y datos de coordinación.</span>
           </div>
         </div>
       </div>
@@ -918,6 +922,17 @@
                   </div>
                 </div>
               </fieldset>
+
+              <section class="later-box">
+                <h4>Video del sponsor</h4>
+                <div class="field">
+                  <label for="sponsorVideoFile">Adjuntar video institucional o pieza audiovisual</label>
+                  <input id="sponsorVideoFile" name="sponsorVideoFile" type="file" accept=".mp4,.mov,.webm,video/mp4,video/quicktime,video/webm" />
+                </div>
+                <div style="margin-top: 14px; text-align: right;">
+                  <button type="submit" class="button small">Enviar video</button>
+                </div>
+              </section>
             </div>
 
             <div class="form-view" id="accesos" data-view hidden>
@@ -983,7 +998,7 @@
                 <div style="margin-top: 12px;">
                   <button class="button secondary small" type="button" id="addAttendee">Agregar asistente</button>
                 </div>
-                <div class="panel-note">También se puede reemplazar esta tabla por carga de Excel cuando se conecte a backend.</div>
+                <div class="panel-note">Si aún no cuentan con todos los datos de asistentes, pueden enviar la información disponible y completarla luego con el equipo de coordinación.</div>
               </fieldset>
 
               <fieldset>
@@ -1170,22 +1185,12 @@
           </form>
         </section>
 
-        <section class="later-box">
-          <h4>Video del sponsor</h4>
-          <div class="field">
-            <label for="sponsorVideoFile">Adjuntar video institucional o pieza audiovisual</label>
-            <input id="sponsorVideoFile" name="sponsorVideoFile" type="file" accept=".mp4,.mov,.webm,video/mp4,video/quicktime,video/webm" />
-          </div>
-          <div style="margin-top: 14px; text-align: right;">
-            <button type="submit" form="sponsorForm" class="button small">Enviar video</button>
-          </div>
-        </section>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap">AI Construction Summit 2026 - Portal local de onboarding para sponsors. Versión prototipo para validar campos antes de despliegue web.</div>
+    <div class="wrap">AI Construction Summit 2026 - Portal oficial de coordinación para sponsors.</div>
   </footer>
 
   <script>
@@ -1373,7 +1378,7 @@
     function saveDraft() {
       const data = collectData();
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-      statusEl.innerHTML = "Estado: <b>borrador guardado</b>";
+      statusEl.innerHTML = "Estado: <b>información guardada</b>";
     }
 
     function loadDraft() {
@@ -1402,7 +1407,7 @@
       }
       updateConditionals();
       updateFilledStates();
-      statusEl.innerHTML = "Estado: <b>datos recuperados</b>";
+      statusEl.innerHTML = "Estado: <b>información cargada</b>";
     }
 
     document.getElementById("saveDraft")?.addEventListener("click", saveDraft);
@@ -1416,7 +1421,7 @@
       a.download = "sponsor-onboarding-ai-summit-2026.json";
       a.click();
       URL.revokeObjectURL(url);
-      statusEl.innerHTML = "Estado: <b>JSON exportado</b>";
+      statusEl.innerHTML = "Estado: <b>archivo generado</b>";
     });
 
     form.addEventListener("submit", (event) => {
