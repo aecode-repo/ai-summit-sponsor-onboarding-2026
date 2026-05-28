@@ -752,6 +752,7 @@
       <a href="#formularios">Formularios</a>
       <a href="#marketing">Marketing</a>
       <a href="#accesos">Accesos</a>
+      <a href="#ponente">Ponente</a>
       <a href="#formularios" class="access">Empezar</a>
     </nav>
   </header>
@@ -798,7 +799,11 @@
           </button>
           <button class="tab" data-tab="accesos" type="button">
             <span class="tab-icon">02</span>
-            <span><strong>Accesos y ponente</strong><span>Representantes, entradas, speaker</span></span>
+            <span><strong>Accesos</strong><span>Representantes y entradas</span></span>
+          </button>
+          <button class="tab" data-tab="ponente" type="button">
+            <span class="tab-icon">03</span>
+            <span><strong>Ponente / representante</strong><span>Agenda, bio, foto y rol</span></span>
           </button>
           <div class="side-note">
             Completa la información por área para que el equipo pueda activar marca, accesos y participación académica.
@@ -919,8 +924,8 @@
               <div class="form-header">
                 <div>
                   <div class="section-kicker">Formulario 02</div>
-                  <h3>Representantes, accesos y participación académica</h3>
-                  <p class="muted">Para acreditar asistentes, activar beneficios y coordinar ponentes sponsor cuando el paquete lo incluya.</p>
+                  <h3>Representantes y accesos</h3>
+                  <p class="muted">Para acreditar asistentes, activar beneficios y coordinar representantes del sponsor durante el evento.</p>
                 </div>
                 <span class="badge">Operativo + académico</span>
               </div>
@@ -1049,8 +1054,20 @@
                 </div>
               </fieldset>
 
+            </div>
+
+            <div class="form-view" id="ponente" data-view hidden>
+              <div class="form-header">
+                <div>
+                  <div class="section-kicker">Formulario 03</div>
+                  <h3>Datos del ponente o representante</h3>
+                  <p class="muted">Para armar agenda, pieza gráfica, bio pública y coordinación de speaker, panelista o moderador.</p>
+                </div>
+                <span class="badge">Agenda + difusión</span>
+              </div>
+
               <fieldset>
-                <legend>Datos del ponente o representante</legend>
+                <legend>Participación en el programa</legend>
                 <div class="grid">
                   <div class="field">
                     <label for="hasSpeaker">¿Su categoría o acuerdo incluye participación académica, panel o representante?</label>
@@ -1451,7 +1468,7 @@
     });
 
     const initialHash = location.hash.replace("#", "");
-    if (["marketing", "accesos"].includes(initialHash)) activateTab(initialHash);
+    if (["marketing", "accesos", "ponente"].includes(initialHash)) activateTab(initialHash);
     loadDraft();
   </script>
 </body>
