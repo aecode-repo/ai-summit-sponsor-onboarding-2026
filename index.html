@@ -680,37 +680,13 @@
     }
 
     .later-box {
-      margin: 0 0 34px;
-      padding: 22px 18px 18px;
+      margin-top: 22px;
+      padding: 28px;
       border: 1px dashed rgba(143, 170, 255, .35);
       border-radius: var(--radius);
       background: rgba(53, 168, 255, .045);
       position: relative;
-    }
-
-    .later-box::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: -30px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(143, 170, 255, .5), transparent);
-    }
-
-    .later-box::after {
-      content: "Envío independiente";
-      position: absolute;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 0 12px;
-      background: var(--panel);
-      color: #9cc8ff;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+      box-shadow: var(--shadow);
     }
 
     .later-box h4 {
@@ -1198,18 +1174,18 @@
               <div class="status" id="saveStatus">Estado: <b>listo para enviar</b></div>
               <button type="submit" class="button small">Enviar información</button>
             </div>
-
-            <div class="later-box">
-              <h4>Video del sponsor</h4>
-              <div class="field">
-                <label for="sponsorVideoFile">Adjuntar video institucional o pieza audiovisual</label>
-                <input id="sponsorVideoFile" name="sponsorVideoFile" type="file" accept=".mp4,.mov,.webm,video/mp4,video/quicktime,video/webm" />
-              </div>
-              <div style="margin-top: 14px; text-align: right;">
-                <button type="submit" class="button small">Enviar video</button>
-              </div>
-            </div>
           </form>
+        </section>
+
+        <section class="later-box">
+          <h4>Video del sponsor</h4>
+          <div class="field">
+            <label for="sponsorVideoFile">Adjuntar video institucional o pieza audiovisual</label>
+            <input id="sponsorVideoFile" name="sponsorVideoFile" type="file" accept=".mp4,.mov,.webm,video/mp4,video/quicktime,video/webm" />
+          </div>
+          <div style="margin-top: 14px; text-align: right;">
+            <button type="submit" form="sponsorForm" class="button small">Enviar video</button>
+          </div>
         </section>
       </div>
     </section>
